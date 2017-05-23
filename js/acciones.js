@@ -7,9 +7,9 @@ document.addEventListener("deviceready", onDeviceReady, false);
 
 function  onDeviceReady(){
 	
-$('#pocision').on('click', function (){
+$('#posicion').on('click', function (){
 	getPosition ();
-})
+});
 
 $('#watch').on('click', function (){
 	watchPosition  ();
@@ -26,7 +26,7 @@ $('#watch').on('click', function (){
   
   var watchID=navigator.geolocation.getCurrentPosition(onSuccess, onError, options);
   
-  function omSuccess(position) {
+  function onSuccess(position) {
 	  
 	  alert('Latitude:'      +position.coords.latitude    +'\n'+
 	  'Longitude:'           +position.coords.longitude   +'\n'+
@@ -39,7 +39,7 @@ $('#watch').on('click', function (){
  };
   
   function onError(error){
-	   alert('code:'   +error.code   +'/n');
+	   alert('code:'   +error.code +'\n' + 'message:' + error.message +'/n' );
   }
  }
   
@@ -62,7 +62,7 @@ $('#accuracy').html(position.coords.accuracy);
 $('#aaccuracy').html(position.coords.altitudeAccuracy);
 $('#headingg').html(position.coords.heading);
 $('#speed').html(position.coords.speed);
-$('#timestamp').html(position.coords.timestamp);
+$('#timestamp').html(position.timestamp);
 	};
 	
 	function onError(error) {
